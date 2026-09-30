@@ -1,0 +1,73 @@
+{
+  "version": 1,
+  "baseBranch": "main",
+  "baseRef": "origin/main",
+  "remote": "origin",
+  "stateDirectory": "merge-broker",
+  "leases": {
+    "ttlSeconds": 1800,
+    "lockTimeoutSeconds": 15,
+    "serializedPatterns": [
+      "package-lock.json",
+      "pnpm-lock.yaml",
+      "yarn.lock"
+    ]
+  },
+  "policies": {
+    "unexpectedPaths": "error",
+    "requireCleanWorktree": false,
+    "requireDependencies": true
+  },
+  "scheduling": {
+    "maxTasks": 6,
+    "maxCommits": 12,
+    "maxWaitSeconds": 600,
+    "allowPathOverlap": false
+  },
+  "integration": {
+    "branchPrefix": "merge-broker/",
+    "history": "preserve",
+    "keepFailedWorktrees": false,
+    "refreshBase": true,
+    "maxAttempts": 3,
+    "provenance": {
+      "enabled": true,
+      "directory": ".merge-broker/attestations",
+      "requireSignature": true,
+      "publicKey": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAeUb+RmgoKfjrPQ4CySW5SnlcMwJrol0tiTEksta4HW8=\n-----END PUBLIC KEY-----\n"
+    }
+  },
+  "validation": {
+    "authority": "broker",
+    "focused": [],
+    "authoritative": [
+      {
+        "name": "workspace verify",
+        "command": "npm run verify",
+        "timeoutSeconds": 1200
+      }
+    ]
+  },
+  "approval": {
+    "required": true,
+    "policyRevision": "live-acceptance-rc2",
+    "requiredVerifications": [
+      "manual"
+    ],
+    "requiredChecks": [
+      "validation",
+      "provenance"
+    ],
+    "authorizedActors": [
+      "WeSpitfire"
+    ]
+  },
+  "publish": {
+    "mode": "pull-request",
+    "draft": false,
+    "autoMerge": true,
+    "mergeMethod": "squash",
+    "labels": [],
+    "titleTemplate": "Integration batch {batchId}"
+  }
+}
