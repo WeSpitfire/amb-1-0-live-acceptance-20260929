@@ -1,2 +1,2 @@
 export const checkoutFeature = true;
-// FIXME: remove before integration
+export const checkoutFeatureVersion = 2;
