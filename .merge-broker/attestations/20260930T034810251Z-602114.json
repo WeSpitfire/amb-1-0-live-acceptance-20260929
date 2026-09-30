@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "generator": "agent-merge-broker",
+  "batchId": "20260930T034810251Z-602114",
+  "baseBranch": "main",
+  "history": "preserve",
+  "baseSha": "8b2e4c91a06d7d182bfcb4bb99bdf93a5678d1f5",
+  "integratedHeadSha": "4cff3526b8b7b52bb68a1f3f2fad564f5c9963f9",
+  "taskIds": [
+    "SEARCH-1",
+    "CHECKOUT-1"
+  ],
+  "tasks": [
+    {
+      "id": "SEARCH-1",
+      "commits": [
+        "dc7b1975ef8674efd2379872b05095a4ac40eb71"
+      ],
+      "actualPaths": [
+        "src/search/feature.ts"
+      ],
+      "dependsOn": []
+    },
+    {
+      "id": "CHECKOUT-1",
+      "commits": [
+        "79e45b40dd99ba65ebaac7282216e8792c86e000",
+        "51573c300938771c7c5ecfb58ae378c8810188b6"
+      ],
+      "actualPaths": [
+        "src/checkout/feature.ts"
+      ],
+      "dependsOn": []
+    }
+  ],
+  "validations": [
+    {
+      "name": "workspace verify",
+      "scope": "authoritative",
+      "exitCode": 0,
+      "durationMs": 833
+    }
+  ],
+  "createdAt": "2026-09-30T03:48:14.430Z",
+  "signature": {
+    "algorithm": "ed25519",
+    "keyId": "7d565bd91dbe1ef198d89180c9823140f2ab647150e8c1f038b01dea924aa147",
+    "value": "vBx6EQMuk1vFsCZRZTqNCogL9UjDtlj1X9KcftF9aAmDOEKJK_BLdmwpRrzCw9hE97Hf_8FBZFPgmZ67kFMLAg"
+  }
+}
