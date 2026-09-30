@@ -1,0 +1,14 @@
+name: provenance
+on:
+  pull_request:
+jobs:
+  provenance:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+      - uses: WeSpitfire/agent-merge-broker/verify@v1.0.0-rc.2
